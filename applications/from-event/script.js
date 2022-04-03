@@ -22,3 +22,10 @@ const addMessageToDOM = () => {
  * - Use `addMessageToDOM` to add a useless message to the DOM whenever the
  *   stream emits a value.
  */
+
+// NOTE: unlike with event listeners, `fromEvent` helps us clean up at the end
+// so there is no need to remove anything!
+const buttonClick$ = fromEvent(button, 'click');
+
+buttonClick$.subscribe(addMessageToDOM);
+buttonClick$.subscribe(() => alert('You clicked the button!!!!'));
