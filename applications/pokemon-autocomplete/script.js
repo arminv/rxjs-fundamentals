@@ -26,6 +26,7 @@ const search$ = fromEvent(search, 'input').pipe(
   debounceTime(300),
   map((event) => event.target.value),
   // distinctUntilChanged(),
+  // NOTE: we could also use/argue for `exhaustMap` instead:
   switchMap((searchTerm) =>
     fromFetch(endpoint + searchTerm + '?delay=5000&chaos=true').pipe(
       mergeMap((response) => response.json()),

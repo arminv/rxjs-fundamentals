@@ -20,6 +20,8 @@ const counter$ = merge($start, $pause).pipe(
   scan((total) => total + 1, 0),
 );
 
+counter$.subscribe(setCount);
+
 // ===========================Intermediate V1=========================
 // const start$ = fromEvent(startButton, 'click');
 // const pause$ = fromEvent(pauseButton, 'click');

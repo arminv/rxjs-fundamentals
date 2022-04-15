@@ -21,7 +21,7 @@ import {
   setError,
 } from '../dog-facts/utilities';
 
-const endpoint = 'http://localhost:3333/api/facts';
+const endpoint = 'https://localhost:3333/api/facts';
 
 const fetchData = () =>
   fromFetch(endpoint).pipe(

@@ -43,7 +43,9 @@ const search$ = fromEvent(form, 'submit').pipe(
     getPokemon(searchTerm).pipe(
       pluck('pokemon'),
       mergeMap(identity),
+      // NOTE: we could also use `first` to get the first value in the stream (instead of `take(1)`):
       take(1),
+      // first(),
       switchMap((pokemon) => {
         const pokemon$ = of(pokemon);
 
